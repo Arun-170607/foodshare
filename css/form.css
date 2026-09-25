@@ -1,0 +1,129 @@
+body {
+       margin: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+    background-image: url("../Images/food_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+form {
+    margin-right:50px;
+     background-color: rgba(255, 255, 255, 0.90);
+    padding: 30px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    width: 450px;
+    height: 500px;
+    margin: 50px 80px 140px auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(5px);
+    margin-right:150px;
+}
+
+h2 {
+    text-align: center;
+    color: brown;
+    font-size:xx-large;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #4f8994;
+    border-radius: 10px;
+    align-items:center
+}
+
+button {
+    background-color:brown;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size:15px;
+    
+    position: relative;
+    left: 20px;
+
+
+}
+
+
+button:hover {
+    background-color: #14532D;
+}
+table{
+    margin-left:70px;
+    gap:10px;
+
+}
+td {
+    padding: 10px 15px;
+}
+placeholder{
+    color:white;
+    background-color:black;
+}
+.signin-text {
+   
+    text-align: center;
+    font-size: 17px;
+}
+
+.signin-text a {
+    color: #14532D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin-text a:hover {
+    text-decoration: none;
+    
+}
+.log{
+      transform: translateX(40px);
+        border: none;
+      border-radius: 18px;
+      cursor: pointer;
+     align-items:center;
+    font-size:xx-large;
+     
+     
+
+}
+
+.toast {
+    position: fixed;
+    top: 80px;
+    right: 25px;
+
+    background: #14532D;
+    color: white;
+
+    padding: 14px 22px;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100px);
+
+    transition: all 0.4s ease;
+
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}

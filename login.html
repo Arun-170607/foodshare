@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="css/form.css">
+    <title>Food Waste Redistribution Platform</title>
+</head>
+<body>
+        <form onsubmit="loginUser(event)">
+            <h2>Login</h2>
+            <table>
+                 <tr>
+                <td><label>Email:</label></td>
+                <td><input type="email" id="email" placeholder="Enter your email" required></td>
+                
+            </tr>
+                <tr>
+                     <td><label>Password:</label></td>
+                     <td><input type ="password" id="password" placeholder="enter a strong password!" minlength="8" required></td>
+               </tr>
+                 <tr>
+                
+                     <td>
+                        <div class="log">
+                       <button type="submit">Login</button>
+                       </div>
+                     </td>
+                 </tr>
+            </table>
+        </form>
+        <div id="toast" class="toast">
+            <span id="toastMessage"></span>
+        </div>
+        
+
+
+            <script src="js/lform.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.contact-section {
+    scroll-margin-top: 70px;
+}
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../Images/about-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.contact-content {
+    text-align: left;
+    margin-right: 65%;
+    padding-left:50px;
+}
+
+.contact-content h1 {
+    font-size: 80px;
+    /* font-weight: 500; */
+    /* margin-bottom: 20px; */
+    color:#15803D;
+    margin-left:20%;
+}
+
+.contact-content p {
+    font-size:large;
+    /* line-height: 1.6; */
+    margin-bottom: 30px;
+    margin-left:50px;
+   
+}
+
+.contact-content table {
+    margin-top: 30px;
+    font-size: 18px;
+    
+    border-collapse: collapse;
+    border-radius:10px;
+    border-spacing: 0 30px;
+
+}
+.contact-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left:40%;
+    font-size:x-large;
+}
+
+.contact-content table tr {
+    display: block;
+    margin-bottom: 25px;
+}
+
+.contact-content table td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.contact-content table td:first-child {
+    width: 45px;
+    color: #198754;
+    font-size: 20px;
+}
+
+.contact-content table td:last-child {
+    padding-left: 10px;
+    font-size: 17px;
+    
+}
+
+.contact-content table a {
+    color: #198754;
+    text-decoration: none;
+}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <title>Food Waste Redistribution Platform</title>
+</head>
+<body>
+
+
+    
+    
+       <form onsubmit="registerUser(event)">
+              <h2>Registration</h2>
+        <table>
+            <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" id="name" placeholder="enter your name!" pattern="[A-Za-z ]{3,30}"  title="Name should contain only le tters and spaces" required ></td>
+            </tr>
+            <tr>
+                <td><label>Email:</label></td>
+                <td><input type="email" id="email" placeholder="Enter your email" required></td>
+                
+            </tr>
+            <tr>
+                <td><label>PhoneNumber:</label></td>
+                <td><input type="number" id="phone" placeholder="enter your Ph No"   pattern="[6-9][0-9]{9}"  title="Enter a valid 10 digit Indian phone number" required></td>
+            </tr>
+            
+
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type ="password" id="password" placeholder="enter a strong password!" minlength="8" required></td>
+            </tr>
+            <!-- <tr>
+                <td><label>Register As:</label></td>
+                <td>
+                    <input type="radio" name="role" value="Donar" required>Donar
+                    <input type="radio" name="role" value="Buyer" required>Buyer
+                </td>
+            </tr> -->
+
+            <tr>
+                <td>
+                    <button type="button" onclick="window.location.href='index.html'">PreviousPage</button>
+                </td>
+                
+                <td>
+                    <button type="Submit">RegisterNow</button>
+                </td>
+
+            </tr>
+            <tr>
+                
+                <td colspan="2" class="signin-text">
+                    Already have an account?
+                    <a href="login.html">Sign In</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="toast" class="toast">
+    <span id="toastMessage"></span>
+</div>
+
+    <script src="js/form.js"></script>
+</body>
+</html>
