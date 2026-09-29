@@ -1,11 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const btn = document.getElementById("contactBtn");
+    const contactBtn = document.getElementById("contactBtn");
+    const contactSection = document.getElementById("contact");
 
-    btn.addEventListener("click", function () {
+    if (contactBtn && contactSection) {
 
-        alert("Contact button working!");
+        contactBtn.addEventListener("click", function () {
 
-    });
+            contactSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+    }
 
 });

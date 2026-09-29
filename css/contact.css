@@ -1,83 +1,156 @@
-html {
-    scroll-behavior: smooth;
-}
-
 .contact-section {
-    scroll-margin-top: 70px;
-}
-.contact-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("../Images/about-bg.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-}
-.contact-content {
-    text-align: left;
-    margin-right: 65%;
-    padding-left:50px;
-}
-
-.contact-content h1 {
-    font-size: 80px;
-    /* font-weight: 500; */
-    /* margin-bottom: 20px; */
-    color:#15803D;
-    margin-left:20%;
-}
-
-.contact-content p {
-    font-size:large;
-    /* line-height: 1.6; */
-    margin-bottom: 30px;
-    margin-left:50px;
-   
-}
-
-.contact-content table {
-    margin-top: 30px;
-    font-size: 18px;
-    
-    border-collapse: collapse;
-    border-radius:10px;
-    border-spacing: 0 30px;
-
-}
-.contact-content table {
+    min-height: 100vh;
     width: 100%;
-    border-collapse: collapse;
-    margin-left:40%;
-    font-size:x-large;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 70px 8%;
+    box-sizing: border-box;
+
+    background-image: url("../Images/contact-bg3.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    scroll-margin-top: 0px;
 }
 
-.contact-content table tr {
-    display: block;
-    margin-bottom: 25px;
-}
 
-.contact-content table td {
+/* LEFT SIDE */
+
+.contact-info {
+    margin-left:110px;
+    width: 45%;
     text-align: left;
-    vertical-align: middle;
-    padding: 0;
 }
 
-.contact-content table td:first-child {
-    width: 45px;
+.contact-info h1 {
+    font-size: 42px;
+    color: #14532D;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    width: 90%;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+
+/* CONTACT DETAILS */
+
+.contact-info table {
+    border-collapse: collapse;
+}
+
+.contact-info tr {
+    height: 55px;
+}
+
+.contact-info td {
+    text-align: left;
+    padding-right: 15px;
+}
+
+.contact-info td:first-child {
     color: #198754;
     font-size: 20px;
+    width: 35px;
 }
 
-.contact-content table td:last-child {
-    padding-left: 10px;
-    font-size: 17px;
-    
-}
-
-.contact-content table a {
+.contact-info a {
     color: #198754;
     text-decoration: none;
 }
 
+
+/* RIGHT SIDE FORM */
+
+.contact-content {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.contact-content form {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.90);
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+    box-sizing: border-box;
+}
+
+
+
+
+.contact-content h1 {
+    margin: 0 0 8px;
+    color: #14532D;
+    font-size: 30px;
+}
+
+.contact-content h2 {
+    margin: 0 0 25px;
+    color: #666;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.contact-content input,
+.contact-content textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 16px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.contact-content textarea {
+    height: 130px;
+    resize: none;
+}
+
+.contact-content input:focus,
+.contact-content textarea:focus {
+    border-color: #198754;
+}
+
+
+
+
+.send-btn {
+    width: 100%;
+    padding: 12px 20px;
+
+    background: #14532D;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    background: #198754;
+}
+
+.send-btn i {
+    margin-right: 7px;
+}
