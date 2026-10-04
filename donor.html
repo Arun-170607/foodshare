@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donate Surplus Food - FoodShare</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Donor CSS -->
+    <link rel="stylesheet" href="css/d_form.css">
+
+</head>
+
+
+<body>
+
+<section class="donor-page">
+
+    <div class="donor-container">
+
+
+        <!-- ================= LEFT SIDE ================= -->
+
+        <div class="donor-info">
+
+            <div class="foodshare-logo">
+
+                <i class="bi bi-leaf-fill"></i>
+
+                <div>
+                    <h3>FoodShare</h3>
+                    <span>Share Food. Save Lives.</span>
+                </div>
+
+            </div>
+
+
+            <h1>
+                Donate<br>
+                Surplus Food
+            </h1>
+
+
+            <p class="donor-description">
+
+                Don't let surplus food go to waste.
+                Share safe and fresh food with people
+                and organizations who need it.
+
+            </p>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+
+                <div class="feature-text">
+
+                    <h3>Share Food</h3>
+
+                    <p>
+                        Give your surplus food to people in need.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    <i class="bi bi-recycle"></i>
+                </div>
+
+                <div class="feature-text">
+
+                    <h3>Reduce Waste</h3>
+
+                    <p>
+                        Help reduce unnecessary food wastage.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <div class="feature-text">
+
+                    <h3>Help Communities</h3>
+
+                    <p>
+                        Support NGOs and charitable organizations.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= RIGHT SIDE FORM ================= -->
+
+        <div class="donor-form">
+
+            <form id="donorForm">
+
+
+                <!-- FORM HEADING -->
+
+                <div class="form-heading">
+
+                    <i class="bi bi-basket2-fill"></i>
+
+                    <div>
+
+                        <h2>Donate Food</h2>
+
+                        <p>
+                            Provide details about your surplus food.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= FORM GRID ================= -->
+
+                <div class="form-grid">
+
+
+                    <!-- DONOR TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            <i class="bi bi-building-fill"></i>
+                            Donor Type
+                        </label>
+
+                        <select id="donorType" required>
+
+                            <option value="">
+                                Select donor type
+                            </option>
+
+                            <option value="Hotel">
+                                Hotel
+                            </option>
+
+                            <option value="Restaurant">
+                                Restaurant
+                            </option>
+
+                            <!-- <option value="Bakery">
+                                Bakery
+                            </option>
+
+                            <option value="Event Organizer">
+                                Event Organizer
+                            </option>
+
+                            <option value="Individual">
+                                Individual
+                            </option> -->
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- HOTEL / RESTAURANT NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-shop"></i>
+
+                            Hotel / Restaurant Name
+
+                        </label>
+
+                        <div class="verify-input">
+
+                            <input
+                                type="text"
+                                id="businessName"
+                                placeholder="Enter business name"
+                                required>
+
+                            <button
+                                type="button"
+                                class="verify-btn"
+                                id="verifyBtn">
+
+                                <i class="bi bi-patch-check-fill"></i>
+
+                                Verify
+
+                            </button>
+
+                        </div>
+
+                        <p
+                            id="verifyStatus"
+                            class="verify-status">
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CONTACT PERSON -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-person-fill"></i>
+
+                            Contact Person
+
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter contact person name"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-telephone-fill"></i>
+
+                            Contact Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Enter phone number"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- FOOD NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-egg-fried"></i>
+
+                            Food Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Eg: Vegetable Rice"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- FOOD CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-grid-fill"></i>
+
+                            Food Category
+
+                        </label>
+
+                        <select required>
+
+                            <option value="">
+                                Select food category
+                            </option>
+
+                            <option>
+                                Cooked Meals
+                            </option>
+
+                            <option>
+                                Rice / Biriyani
+                            </option>
+
+                            <option>
+                                Curry / Gravy
+                            </option>
+
+                            <option>
+                                Bakery Items
+                            </option>
+
+                            <option>
+                                Fruits & Vegetables
+                            </option>
+
+                            <option>
+                                Packaged Food
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-box-seam-fill"></i>
+
+                            Quantity
+
+                        </label>
+
+                        <input
+                            type="number"
+                            min="1"
+                            placeholder="Enter quantity"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- SERVES -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-people-fill"></i>
+
+                            Serves
+
+                        </label>
+
+                        <input
+                            type="number"
+                            min="1"
+                            placeholder="Approx. people"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- FOOD TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-leaf-fill"></i>
+
+                            Food Type
+
+                        </label>
+
+                        <div class="radio-group">
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="foodType"
+                                    value="Veg"
+                                    required>
+
+                                Veg
+
+                            </label>
+
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="foodType"
+                                    value="Non-Veg">
+
+                                Non-Veg
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FOOD CONDITION -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-shield-check"></i>
+
+                            Food Condition
+
+                        </label>
+
+                        <select required>
+
+                            <option value="">
+                                Select condition
+                            </option>
+
+                            <option>
+                                Fresh & Safe
+                            </option>
+
+                            <option>
+                                Ready to Consume
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- PREPARED DATE -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-calendar-check-fill"></i>
+
+                            Prepared Date & Time
+
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- AVAILABLE UNTIL -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-clock-fill"></i>
+
+                            Food Available Until
+
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- ================= LOCATION ================= -->
+
+                    <div class="form-group full-width">
+
+                        <label>
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                            Pickup Location
+
+                        </label>
+
+
+                        <div class="location-box">
+
+                            <textarea
+                                id="pickupLocation"
+                                placeholder="Verify your hotel / restaurant to get the location"
+                                readonly
+                                required></textarea>
+
+
+                            <button
+                                type="button"
+                                class="location-btn"
+                                id="liveLocationBtn"
+                                title="Use my live location">
+
+                                <i class="bi bi-crosshair"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="live-location-btn"
+                            id="liveLocationTextBtn">
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                            Use My Live Location
+
+                        </button>
+
+
+                        <p
+                            id="locationStatus"
+                            class="location-status">
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PICKUP DATE -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-calendar-event-fill"></i>
+
+                            Pickup Date
+
+                        </label>
+
+                        <input
+                            type="date"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- PICKUP TIME -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="bi bi-clock-fill"></i>
+
+                            Pickup Time
+
+                        </label>
+
+                        <input
+                            type="time"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- ADDITIONAL INSTRUCTIONS -->
+
+                    <div class="form-group full-width">
+
+                        <label>
+
+                            <i class="bi bi-file-text-fill"></i>
+
+                            Additional Instructions
+
+                        </label>
+
+                        <textarea
+                            class="instructions"
+                            placeholder="Any additional information...">
+                        </textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOOD SAFETY -->
+
+                <div class="food-confirm">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            required>
+
+                        I confirm that the donated food is
+                        safe and suitable for consumption.
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- DONATE BUTTON -->
+
+                <button
+                    type="submit"
+                    class="donate-btn">
+
+                    <i class="bi bi-heart-fill"></i>
+
+                    Donate Surplus Food
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+        <div id="toast" class="toast">
+        <i id="toastIcon" class="bi bi-check-circle-fill"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+</section>
+
+
+<script src="js/donor.js"></script>
+
+</body>
+
+</html>

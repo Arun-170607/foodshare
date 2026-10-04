@@ -48,6 +48,23 @@ setTimeout(() => {
 
 
 }
+document.addEventListener("DOMContentLoaded", function () {
+
+    const username = sessionStorage.getItem("username");
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
+    const registerButton =
+        document.getElementById("registerButton");
+
+
+    if (username && isLoggedIn === "true") {
+
+        registerButton.innerText =
+            "Hi, " + username;
+
+    }
+
+});
 
 
 function showToast(message) {

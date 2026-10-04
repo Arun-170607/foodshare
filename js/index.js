@@ -1,34 +1,36 @@
-let username = sessionStorage.getItem("username");
-let isLoggedIn = sessionStorage.getItem("isLoggedIn");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (username && isLoggedIn === "true") {
-    document.getElementById("registerButton").innerText = "Hi, " + username;
-}
-
-
-
-function goToAbout() {
+    const aboutBtn = document.getElementById("aboutBtn");
+    const contactBtn = document.getElementById("contactBtn");
 
     const aboutSection = document.getElementById("about");
-
-    if (aboutSection) {
-        aboutSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }
-}
-
-
-
-function goToContact() {
-
     const contactSection = document.getElementById("contact");
 
-    if (contactSection) {
-        contactSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+
+    if (aboutBtn && aboutSection) {
+        aboutBtn.addEventListener("click", function () {
+
+            aboutSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
         });
     }
-}
+
+
+    if (contactBtn && contactSection) {
+        contactBtn.addEventListener("click", function () {
+
+            contactSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+    }
+    document.getElementById("donateBtn").addEventListener("click", function () {
+    window.location.href = "donor.html";
+});
+
+});

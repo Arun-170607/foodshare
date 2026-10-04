@@ -1,8 +1,13 @@
+
+#contact {
+    scroll-margin-top: 0px;
+}
 .contact-section {
     min-height: 100vh;
     width: 100%;
 
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
@@ -10,70 +15,26 @@
     box-sizing: border-box;
 
     background-image: url("../Images/contact-bg3.png");
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
     scroll-margin-top: 0px;
 }
 
 
-/* LEFT SIDE */
-
-.contact-info {
-    margin-left:110px;
-    width: 45%;
-    text-align: left;
-}
-
-.contact-info h1 {
-    font-size: 42px;
-    color: #14532D;
-    margin-bottom: 15px;
-}
-
-.contact-info p {
-    width: 90%;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 30px;
-}
-
-
-/* CONTACT DETAILS */
-
-.contact-info table {
-    border-collapse: collapse;
-}
-
-.contact-info tr {
-    height: 55px;
-}
-
-.contact-info td {
-    text-align: left;
-    padding-right: 15px;
-}
-
-.contact-info td:first-child {
-    color: #198754;
-    font-size: 20px;
-    width: 35px;
-}
-
-.contact-info a {
-    color: #198754;
-    text-decoration: none;
-}
-
-
-/* RIGHT SIDE FORM */
 
 .contact-content {
+    order: 1;
+
     width: 45%;
+
     display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
 }
 
 .contact-content form {
@@ -83,6 +44,7 @@
     padding: 35px;
 
     background: rgba(255, 255, 255, 0.90);
+
     border-radius: 20px;
 
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
@@ -93,37 +55,51 @@
 
 
 
-.contact-content h1 {
+.contact-content form h1 {
     margin: 0 0 8px;
+
     color: #14532D;
+
     font-size: 30px;
 }
 
-.contact-content h2 {
+.contact-content form h2 {
     margin: 0 0 25px;
+
     color: #666;
+
     font-size: 15px;
     font-weight: normal;
 }
 
+
+
+
 .contact-content input,
 .contact-content textarea {
+    display: block;
+
     width: 100%;
+
     padding: 13px 15px;
+
     margin-bottom: 16px;
 
     border: 1px solid #ccc;
     border-radius: 8px;
 
+    background: white;
+
     font-size: 15px;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
     outline: none;
+
+    box-sizing: border-box;
 }
 
-.contact-content textarea {
-    height: 130px;
-    resize: none;
-}
+
+
 
 .contact-content input:focus,
 .contact-content textarea:focus {
@@ -131,26 +107,189 @@
 }
 
 
+/* Message */
 
+.contact-content textarea {
+    height: 130px;
+
+    resize: none;
+}
+
+
+/* Placeholder */
+
+.contact-content input::placeholder,
+.contact-content textarea::placeholder {
+    color: #888;
+}
+
+
+/* Send button */
 
 .send-btn {
     width: 100%;
+
     padding: 12px 20px;
 
     background: #14532D;
+
     color: white;
 
     border: none;
+
     border-radius: 8px;
 
     font-size: 15px;
+
     cursor: pointer;
 }
+
+
+/* Send icon */
+
+.send-btn i {
+    margin-right: 7px;
+
+    color: white;
+}
+
+
+/* Button hover */
 
 .send-btn:hover {
     background: #198754;
 }
 
-.send-btn i {
-    margin-right: 7px;
+
+/* ================================
+   CONTACT INFO - RIGHT SIDE
+   ================================ */
+
+.contact-info {
+    order: 2;
+
+    width: 42%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+}
+
+
+/* Contact heading */
+
+.contact-info h1 {
+    margin: 0 0 15px;
+
+    color: #14532D;
+
+    font-size: 42px;
+}
+
+
+/* Contact paragraph */
+
+.contact-info p {
+    width: 90%;
+
+    margin: 0 0 30px;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* Contact table */
+
+.contact-info table {
+    width: auto;
+
+    border-collapse: collapse;
+
+    margin: 0;
+}
+
+
+/* Contact rows */
+
+.contact-info table tr {
+    height: 55px;
+}
+
+
+/* Contact cells */
+
+.contact-info table td {
+    padding: 0 15px 0 0;
+
+    text-align: left;
+
+    vertical-align: middle;
+}
+
+
+/* Icons */
+
+.contact-info table td:first-child {
+    width: 35px;
+
+    color: #198754;
+
+    font-size: 20px;
+}
+
+
+
+
+.contact-info table td:last-child {
+    color: #333;
+
+    font-size: 17px;
+}
+
+
+
+
+.contact-info a {
+    color: #198754;
+
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .contact-section {
+        flex-direction: column;
+
+        padding: 50px 6%;
+    }
+
+    .contact-content,
+    .contact-info {
+        width: 100%;
+    }
+
+    .contact-content {
+        order: 1;
+        margin-bottom: 40px;
+    }
+
+    .contact-info {
+        order: 2;
+    }
+
+    .contact-info h1 {
+        font-size: 34px;
+    }
 }

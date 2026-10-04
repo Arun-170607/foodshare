@@ -22,8 +22,8 @@
 
                      <div class="center-buttons">
                           <button onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">🏠 Home</button>
-                       <button onclick="goToAbout()">ℹ️ About</button>
-                          <button onclick="goToContact()">📞 Contact Us</button>
+                       <button id="aboutBtn">ℹ️ About</button>
+                         <button id="contactBtn">📞 Contact Us</button>
                           
                     </div>
 
@@ -54,7 +54,9 @@
                          who need it.
                     </p>
                         
-                        <button >🍱 Donate Food</button>
+                       <button onclick="window.location.href='donor.html'">
+                         🍱 Donate Food
+                        </button>
                          
 
           
@@ -241,23 +243,22 @@
     </div>
 
 
-    <!-- RIGHT SIDE - FORM -->
+    
     <div class="contact-content">
 
-        <form>
+        <form onsubmit="sendMessage(event)">
 
             <h1>Send Us A Message</h1>
 
             <h2>We'll get back to you as soon as we can</h2>
 
-            <input type="text" placeholder="Your Name" required>
+            <input type="text"  id="name" placeholder="👤 Your Name" required>
 
-            <input type="email" placeholder="Your Email" required>
+            <input type="email"  id="email" placeholder="👤 Your Name" required>
 
-            <input type="text" placeholder="Subject" required>
+            <input type="text" id="subject"  placeholder="💬 Subject" required>
 
-            <textarea placeholder="Your Message" required></textarea>
-
+            <textarea  id="message" placeholder="✏ Your Message" required></textarea>
             <button type="submit" class="send-btn">
                 <i class="bi bi-send-fill"></i>
                 Send Message
