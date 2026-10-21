@@ -1,49 +1,102 @@
+
 function loginUser(event) {
+    if (event) {
+        event.preventDefault();
+    }
 
+    let email = document.getElementById("email").value.trim().toLowerCase();
+    let password = document.getElementById("password").value;
 
-event.preventDefault();
+    let selectedRole = document.querySelector('input[name="role"]:checked');
 
-let email = document.getElementById("email").value.trim();
-let password = document.getElementById("password").value;
+    if (!selectedRole) {
+        showToast("Please select your role.");
+        return;
+    }
 
-let registeredEmail = sessionStorage.getItem("registeredEmail");
-let registeredPassword = sessionStorage.getItem("registeredPassword");
+    let role = selectedRole.value;
 
-if (email === registeredEmail && password === registeredPassword) {
+    if (role === "user") {
+        let users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    sessionStorage.setItem("isLoggedIn", "true");
+        let user = users.find(
+            u => u.email.toLowerCase() === email && u.password === password
+        );
 
-    // Show success toast
-    showToast("Login successful! Welcome to FoodShare 🌱");
+        if (user) {
+            localStorage.setItem("isLoggedIn", "true");
 
-    
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 1500);
+            localStorage.setItem("loggedInUser", JSON.stringify({
+                name: user.name,
+                email: user.email,
+                phone: user.phone
+            }));
 
-} else {
+            localStorage.setItem("username", user.name);
+            localStorage.setItem("registeredEmail", user.email);
+            localStorage.removeItem("isAdminLoggedIn");
 
-    showToast("Invalid email or password! ❌");
+            showToast("Login successful! Welcome to FoodShare 🌱");
 
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000);
+        } else {
+            showToast("Invalid user email or password! ❌");
+        }
+    }
+
+    if (role === "admin") {
+        const adminEmail = "admin@foodshare.com";
+        const adminPassword = "admin12345";
+
+        if (email !== adminEmail || password !== adminPassword) {
+            showToast("Invalid admin credentials!");
+            return;
+        }
+
+        localStorage.setItem("isAdminLoggedIn", "true");
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("loggedInUser");
+
+        showToast("Admin login successful! 🛡️");
+
+        setTimeout(() => {
+            window.location.href = "admin.html";
+        }, 800);
+    }
 }
-
-
-}
-
 
 function showToast(message) {
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
 
+    if (!toast || !toastMessage) {
+        alert(message);
+        return;
+    }
 
-const toast = document.getElementById("toast");
-const toastMessage = document.getElementById("toastMessage");
+    toastMessage.innerText = message;
+    toast.classList.add("show");
 
-toastMessage.innerText = message;
-
-toast.classList.add("show");
-
-setTimeout(() => {
-    toast.classList.remove("show");
-}, 3000);
-
-
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const roleInputs = document.querySelectorAll('input[name="role"]');
+
+    roleInputs.forEach(function (input) {
+        input.addEventListener("change", function () {
+            if (this.value === "admin") {
+                document.getElementById("email").value = "admin@foodshare.com";
+                document.getElementById("password").value = "admin12345";
+
+                loginUser({
+                    preventDefault: function () {}
+                });
+            }
+        });
+    });
+});

@@ -19,12 +19,32 @@
                      <td><label>Password:</label></td>
                      <td><input type ="password" id="password" placeholder="enter a strong password!" minlength="8" required></td>
                </tr>
-                 <tr>
+
+                            <tr>
+                <td>
+                    <label>Role:</label>
+                </td>
+                <td>
+                    <div class="role-options">
+                        <label>
+                            <input type="radio" name="role" value="user" required>
+                            User
+                        </label>
+
+                        <label>
+                            <input type="radio" name="role" value="admin">
+                            Admin
+                        </label>
+                    </div>
+                </td>
+            </tr>
+
+             <tr>
                 
-                     <td>
-                        <div class="log">
-                       <button type="submit">Login</button>
-                       </div>
+           	   <td>
+                          <div class="log">
+                         <button type="submit">Login</button>
+                        </div>
                      </td>
                  </tr>
             </table>

@@ -35,22 +35,19 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 60px;
 
-    background-color:transparent;
-
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-sizing:border-box;
-    z-index: 9999;
+    justify-content: center;
+
+    z-index: 1000;
 }
 
 .center-buttons {
     display: flex;
-    gap: 10px;
+    gap: 0px;
 }
 
 .top-row button {
@@ -70,30 +67,6 @@ body {
     background-color: #0c3710;
 }
 
-
-
-
-#registerButton {
-    position: absolute;
-
-    right: 40px;
-    top: 15px;
-
-    background-color:  rgba(165, 42, 42, 0.816);
-    color: white;
-
-    border-radius: 15px;
-    padding: 8px 15px;
-
-    border: none;
-    cursor: pointer;
-
-    text-decoration: none;
-}
-
-
-
-
 .sidebar {
     position:absolute;
 
@@ -104,11 +77,16 @@ body {
 }
 
 .sidebar img {
-    width: 100px;
-    height: 100px;
-
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
     border-radius: 50%;
     border: 3px solid green;
+    z-index: 1000;
 }
 
 
@@ -130,7 +108,7 @@ body {
 .main-content {
     position:absolute;
     left: 35px;
-    top: 500px;
+    top: 400px;
     z-index: 10;
 }
 
@@ -268,7 +246,64 @@ html {
 } */
 
 .top-row {
-    background: rgba(255, 255, 255, 0.25);
+    background: transparent;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(8px);
+    height: 120px;
+}
+
+/* .user-menu {
+    position: relative;
+    display: inline-block;
+} */
+
+
+/* Register / Username */
+/* 
+#registerButton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #14532D;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+} */
+
+#registerButton:hover {
+   background-color: #0c3710;
+}
+
+.user-menu {
+    position: absolute;
+    right: 25px;
+    top:33%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#registerButton {
+    background-color: rgba(165, 42, 42, 0.816);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#logoutButton {
+    display: none;
+    background-color: rgba(165, 42, 42, 0.816);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#logoutButton:hover {
+    background: #bb2d3b;
 }

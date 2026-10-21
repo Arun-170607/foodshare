@@ -195,9 +195,6 @@ body {
 }
 
 
-/* =========================
-   FORM
-========================= */
 
 .donor-form {
 
@@ -246,7 +243,7 @@ body {
 
 .form-heading h2 {
 
-    color: #14532D;
+    color:#14532D;
 
     font-size: 22px;
 
@@ -292,13 +289,13 @@ body {
 
     font-weight: bold;
 
-    color: #30443a;
+    color: #374151;
 }
 
 
 .form-group label i {
 
-    color: #198754;
+    color:#168A5B;
 
     margin-right: 5px;
     margin-bottom:4px;
@@ -325,7 +322,7 @@ body {
 
     font-size: 11px;
 
-    color: #333;
+    color:black;
 
     outline: none;
 
@@ -337,7 +334,7 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
 
-    border-color: #198754;
+    border-color: black;
 
     box-shadow:
         0 0 0 2px rgba(25, 135, 84, 0.08);
@@ -347,7 +344,7 @@ body {
 .form-group input::placeholder,
 .form-group textarea::placeholder {
 
-    color: #8a9390;
+    color:#6B7280;
 }
 
 
@@ -461,9 +458,7 @@ body {
 }
 
 
-/* =========================
-   LOCATION
-========================= */
+
 
 .location-box {
 
@@ -559,9 +554,7 @@ body {
 }
 
 
-/* =========================
-   TEXTAREA
-========================= */
+
 
 .form-group textarea {
 
@@ -617,9 +610,6 @@ body {
 }
 
 
-/* =========================
-   DONATE BUTTON
-========================= */
 
 .donate-btn {
 
@@ -764,9 +754,7 @@ body {
 
 
 
-/* =========================
-   TOAST MESSAGE
-========================= */
+
 
 .toast {
     position: fixed;

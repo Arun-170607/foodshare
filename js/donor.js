@@ -1,94 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    const donorForm =
-        document.getElementById("donorForm");
-
-
-    const donorType =
-        document.getElementById("donorType");
-
-
-    const businessName =
-        document.getElementById("businessName");
-
-
-    const verifyBtn =
-        document.getElementById("verifyBtn");
-
-
-    const verifyStatus =
-        document.getElementById("verifyStatus");
-
-
-    const pickupLocation =
-        document.getElementById("pickupLocation");
-
-
-    const locationStatus =
-        document.getElementById("locationStatus");
-
-
-    const liveLocationBtn =
-        document.getElementById("liveLocationBtn");
-
-
-    const liveLocationTextBtn =
-        document.getElementById("liveLocationTextBtn");
-
-
-
-    /* =================================
-       VERIFY BUSINESS
-    ================================= */
+    const donorForm = document.getElementById("donorForm");
+    const donorType = document.getElementById("donorType");
+    const businessName = document.getElementById("businessName");
+    const verifyBtn = document.getElementById("verifyBtn");
+    const verifyStatus = document.getElementById("verifyStatus");
+    const pickupLocation = document.getElementById("pickupLocation");
+    const locationStatus = document.getElementById("locationStatus");
+    const liveLocationBtn = document.getElementById("liveLocationBtn");
+    const liveLocationTextBtn = document.getElementById("liveLocationTextBtn");
 
     verifyBtn.addEventListener("click", function () {
 
-        const name =
-            businessName.value.trim();
-
+        const name = businessName.value.trim();
 
         if (name === "") {
-
-            verifyStatus.innerText =
-                "Please enter hotel / restaurant name.";
-
-            verifyStatus.className =
-                "verify-status error";
-
+            verifyStatus.innerText = "Please enter hotel / restaurant name.";
+            verifyStatus.className = "verify-status error";
             return;
         }
 
-
-        verifyStatus.innerText =
-            "Checking business location...";
-
-        verifyStatus.className =
-            "verify-status waiting";
-
-
-        /*
-            Temporary demo verification.
-
-            Later this part can be replaced
-            with Google Places API + Flask backend.
-        */
+        verifyStatus.innerText = "Checking business location...";
+        verifyStatus.className = "verify-status waiting";
 
         setTimeout(function () {
 
-
-            /*
-                Demo Tamil Nadu address.
-            */
-
             const address =
-                name +
-                ", Anna Nagar, Madurai, Tamil Nadu";
+                name + ", Anna Nagar, Madurai, Tamil Nadu";
 
-
-            pickupLocation.value =
-                address;
-
+            pickupLocation.value = address;
 
             verifyStatus.innerText =
                 "✓ Business verified - Tamil Nadu location found.";
@@ -96,26 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
             verifyStatus.className =
                 "verify-status success";
 
-
             locationStatus.innerText =
                 "✓ Pickup location added automatically.";
 
             locationStatus.className =
                 "location-status success";
 
-
         }, 800);
 
     });
 
-
-
-    /* =================================
-       LIVE LOCATION
-    ================================= */
-
     function getLiveLocation() {
-
 
         if (!navigator.geolocation) {
 
@@ -128,40 +59,24 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-
         locationStatus.innerText =
             "Getting your live location...";
 
         locationStatus.className =
             "location-status";
 
-
-
         navigator.geolocation.getCurrentPosition(
 
             function (position) {
 
-
                 const latitude =
                     position.coords.latitude;
-
 
                 const longitude =
                     position.coords.longitude;
 
-
-
-                /*
-                    Demo address.
-
-                    Browser gives coordinates.
-                    For a real address, reverse geocoding
-                    API is required.
-                */
-
                 pickupLocation.value =
                     "Current location - Tamil Nadu";
-
 
                 locationStatus.innerText =
                     "✓ Live location captured successfully.";
@@ -169,17 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 locationStatus.className =
                     "location-status success";
 
-
                 console.log("Latitude:", latitude);
-
                 console.log("Longitude:", longitude);
-
 
             },
 
-
             function () {
-
 
                 locationStatus.innerText =
                     "Please allow location access.";
@@ -193,81 +103,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-
-    /* =================================
-       LIVE LOCATION BUTTONS
-    ================================= */
-
     liveLocationBtn.addEventListener(
         "click",
         getLiveLocation
     );
-
 
     liveLocationTextBtn.addEventListener(
         "click",
         getLiveLocation
     );
 
-
-
-    /* =================================
-       DONOR TYPE CHANGE
-    ================================= */
-
     donorType.addEventListener("change", function () {
-
 
         if (
             donorType.value === "Hotel" ||
             donorType.value === "Restaurant"
         ) {
-
             businessName.placeholder =
                 "Enter hotel / restaurant name";
-
         }
-
-
-        else if (donorType.value === "Bakery") {
-
-            businessName.placeholder =
-                "Enter bakery name";
-
-        }
-
-
-        else if (donorType.value === "Event Organizer") {
-
-            businessName.placeholder =
-                "Enter organization name";
-
-        }
-
-
-        else if (donorType.value === "Individual") {
-
-            businessName.placeholder =
-                "Enter your name";
-
-        }
-
 
         else {
-
             businessName.placeholder =
                 "Enter business name";
-
         }
 
     });
-
-
-
-    /* =================================
-       FORM SUBMIT
-    ================================= */
 
     donorForm.addEventListener(
         "submit",
@@ -275,25 +136,145 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
-        showToast(
-                        "Surplus food donation submitted successfully!",
-                    "success"
-                );
+            const inputs =
+                donorForm.querySelectorAll("input");
 
+            const selects =
+                donorForm.querySelectorAll("select");
+
+            const textareas =
+                donorForm.querySelectorAll("textarea");
+
+            const contactPerson =
+                inputs[1]?.value.trim() || "";
+
+            const contactNumber =
+                inputs[2]?.value.trim() || "";
+
+            const foodName =
+                inputs[3]?.value.trim() || "";
+
+            const quantity =
+                inputs[4]?.value.trim() || "";
+
+            const serves =
+                inputs[5]?.value.trim() || "";
+
+            const foodType =
+                document.querySelector(
+                    'input[name="foodType"]:checked'
+                )?.value || "";
+
+            const preparedDate =
+                inputs[6]?.value || "";
+
+            const availableUntil =
+                inputs[7]?.value || "";
+
+            const pickupDate =
+                inputs[8]?.value || "";
+
+            const pickupTime =
+                inputs[9]?.value || "";
+
+            const foodCategory =
+                selects[1]?.value || "";
+
+            const foodCondition =
+                selects[2]?.value || "";
+
+            const instructions =
+                textareas[1]?.value.trim() || "";
+
+            const donation = {
+
+                id: Date.now(),
+
+                donorType:
+                    donorType.value,
+
+                organizationName:
+                    businessName.value.trim(),
+
+                contactPerson:
+                    contactPerson,
+
+                contact:
+                    contactNumber,
+
+                foodName:
+                    foodName,
+
+                foodType:
+                    foodType,
+
+                foodCategory:
+                    foodCategory,
+
+                foodCondition:
+                    foodCondition,
+
+                quantity:
+                    quantity,
+
+                serves:
+                    serves,
+
+                preparedDate:
+                    preparedDate,
+
+                bestBefore:
+                    availableUntil,
+
+                location:
+                    pickupLocation.value.trim(),
+
+                pickupDate:
+                    pickupDate,
+
+                pickupTime:
+                    pickupTime,
+
+                description:
+                    instructions,
+
+                status:
+                    "Pending",
+
+                date:
+                    new Date().toLocaleDateString("en-GB")
+
+            };
+
+            const donations =
+                JSON.parse(
+                    localStorage.getItem("foodDonations")
+                ) || [];
+
+            donations.push(donation);
+
+            localStorage.setItem(
+                "foodDonations",
+                JSON.stringify(donations)
+            );
+
+           showToast("Food donation submitted successfully! 🎉");
+
+                setTimeout(() => {
+               window.location.href = "index.html";
+            }, 1500);
 
             donorForm.reset();
 
-
             pickupLocation.value = "";
-
             verifyStatus.innerText = "";
-
             locationStatus.innerText = "";
 
         }
     );
 
 });
+
 function showToast(message, type = "success") {
 
     const toast =
@@ -305,9 +286,7 @@ function showToast(message, type = "success") {
     const toastIcon =
         document.getElementById("toastIcon");
 
-
     toastMessage.innerText = message;
-
 
     if (type === "success") {
 
@@ -336,13 +315,12 @@ function showToast(message, type = "success") {
 
     }
 
-
     toast.classList.add("show");
-
 
     setTimeout(function () {
 
         toast.classList.remove("show");
 
     }, 3000);
+
 }

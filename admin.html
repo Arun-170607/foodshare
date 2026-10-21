@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodShare Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="Images/Food_share logo2.png" alt="FoodShare">
+            <div>
+                <h2>FoodShare</h2>
+                <p>Share Food. Save Lives.</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+            <button class="menu-item active" data-section="dashboard"><i class="bi bi-grid-fill"></i><span>Dashboard</span></button>
+            <button class="menu-item" data-section="donors"><i class="bi bi-person-fill"></i><span>Donors</span></button>
+            <button class="menu-item" data-section="ngos"><i class="bi bi-people-fill"></i><span>NGOs / Receivers</span></button>
+            <button class="menu-item" data-section="donations"><i class="bi bi-gift-fill"></i><span>Food Donations</span></button>
+            <button class="menu-item" data-section="requests"><i class="bi bi-clipboard-check-fill"></i><span>Requests</span></button>
+            <button class="menu-item" data-section="users"><i class="bi bi-person-lines-fill"></i><span>Users</span></button>
+            <button class="menu-item" data-section="reports"><i class="bi bi-bar-chart-fill"></i><span>Reports</span></button>
+            <button class="menu-item" data-section="settings"><i class="bi bi-gear-fill"></i><span>Settings</span></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Less Food Waste</p>
+            <p>More Smiles</p>
+            <button id="logoutBtn"><i class="bi bi-box-arrow-right"></i> Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-area">
+        <header class="topbar">
+            <button id="sidebarToggle"><i class="bi bi-list"></i></button>
+            <div class="topbar-right">
+                <button class="notification"><i class="bi bi-bell-fill"></i></button>
+                <div class="admin-profile">
+                    <div class="profile-icon"><i class="bi bi-person-fill"></i></div>
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Administrator</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="admin-section active-section" id="dashboard-section">
+                <div class="page-heading">
+                    <div>
+                        <h1>Admin Dashboard</h1>
+                        <p>Overview of FoodShare platform activity.</p>
+                    </div>
+                    <div class="date-box">
+                        <i class="bi bi-calendar3"></i>
+                        <div>
+                            <span>Today</span>
+                            <strong id="currentDate"></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-basket-fill"></i></div>
+                        <div><span>Total Donations</span><h2 id="totalDonations">0</h2><small>No data available</small></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="bi bi-person-fill"></i></div>
+                        <div><span>Total Donors</span><h2 id="totalDonors">0</h2><small>No data available</small></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-people-fill"></i></div>
+                        <div><span>Total NGOs</span><h2 id="totalNGOs">0</h2><small>No data available</small></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow"><i class="bi bi-box-seam-fill"></i></div>
+                        <div><span>Food Distributed</span><h2 id="foodDistributed">0 kg</h2><small>No data available</small></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i class="bi bi-heart-fill"></i></div>
+                        <div><span>People Benefited</span><h2 id="peopleBenefited">0</h2><small>No data available</small></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-card donation-chart">
+                        <div class="card-header">
+                            <h2><i class="bi bi-bar-chart-fill"></i> Food Donations Overview</h2>
+                            <select id="chartFilter">
+                                <option>Last 7 Days</option>
+                                <option>Last 30 Days</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <canvas id="donationChart"></canvas>
+                    </div>
+
+                    <div class="chart-card category-card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-pie-chart-fill"></i> Food Category</h2>
+                        </div>
+                        <div class="category-chart"><canvas id="categoryChart"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="bottom-grid">
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-gift-fill"></i> Recent Donations</h2>
+                            <button class="view-all" data-section="donations">View All</button>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Donor</th>
+                                        <th>Food Type</th>
+                                        <th>Quantity</th>
+                                        <th>Location</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentDonationsBody">
+                                    <tr><td colspan="7">No donations available</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="quick-card">
+                            <div class="card-header"><h2><i class="bi bi-lightning-fill"></i> Quick Actions</h2></div>
+                            <div class="quick-grid">
+                                <button data-section="donations"><i class="bi bi-gift-fill"></i> View Donations</button>
+                                <button data-section="donors"><i class="bi bi-person-fill"></i> View Donors</button>
+                                <button data-section="ngos"><i class="bi bi-people-fill"></i> View NGOs</button>
+                                <button data-section="reports"><i class="bi bi-file-earmark-bar-graph-fill"></i> Reports</button>
+                            </div>
+                        </div>
+
+                        <div class="requests-card">
+                            <div class="card-header">
+                                <h2><i class="bi bi-clipboard-check-fill"></i> Recent Requests</h2>
+                                <button class="view-all" data-section="requests">View All</button>
+                            </div>
+                            <div class="request-list" id="recentRequestsBody">
+                                <div class="request-item">
+                                    <div class="request-icon"><i class="bi bi-info-circle-fill"></i></div>
+                                    <div><strong>No requests available</strong><span>Waiting for receiver requests</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="donors-section">
+                <div class="page-heading">
+                    <div><h1>Donors</h1><p>Registered food donors.</p></div>
+                </div>
+                <div class="table-card">
+                    <div class="card-header"><h2><i class="bi bi-person-fill"></i> Donor List</h2></div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>#</th><th>Donor Name</th><th>Email</th><th>Phone</th><th>Location</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="6">No donors registered yet</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="ngos-section">
+                <div class="page-heading">
+                    <div><h1>NGOs / Receivers</h1><p>Registered food receiving organizations.</p></div>
+                </div>
+                <div class="table-card">
+                    <div class="card-header"><h2><i class="bi bi-people-fill"></i> NGO / Receiver List</h2></div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>#</th><th>Organization</th><th>Email</th><th>Phone</th><th>Location</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="6">No NGOs or receivers registered yet</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="donations-section">
+                <div class="page-heading">
+                    <div><h1>Food Donations</h1><p>Review and verify food donation requests.</p></div>
+                </div>
+                <div class="table-card">
+                    <div class="card-header"><h2><i class="bi bi-gift-fill"></i> Donation Requests</h2></div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Donor</th>
+                                    <th>Food Type</th>
+                                    <th>Quantity</th>
+                                    <th>Location</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="donationsTableBody">
+                                <tr><td colspan="8">No food donations available</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="requests-section">
+                <div class="page-heading">
+                    <div><h1>Requests</h1><p>Manage food requests from receivers.</p></div>
+                </div>
+                <div class="table-card">
+                    <div class="card-header"><h2><i class="bi bi-clipboard-check-fill"></i> Food Requests</h2></div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Organization</th>
+                                    <th>Food Name</th>
+                                    <th>Food Type</th>
+                                    <th>Quantity</th>
+                                    <th>Location</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requestsTableBody">
+                                <tr><td colspan="9">No food requests available</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="users-section">
+                <div class="page-heading">
+                    <div><h1>Users</h1><p>Manage FoodShare platform users.</p></div>
+                </div>
+                <div class="table-card">
+                    <div class="card-header"><h2><i class="bi bi-person-lines-fill"></i> User List</h2></div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="6">No users available</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="reports-section">
+                <div class="page-heading">
+                    <div><h1>Reports</h1><p>FoodShare activity reports.</p></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-gift-fill"></i></div>
+                        <div><span>Total Donations</span><h2 id="reportDonations">0</h2></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="bi bi-person-fill"></i></div>
+                        <div><span>Total Donors</span><h2 id="reportDonors">0</h2></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-people-fill"></i></div>
+                        <div><span>Total Receivers</span><h2 id="reportReceivers">0</h2></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="settings-section">
+                <div class="page-heading">
+                    <div><h1>Settings</h1><p>Manage FoodShare admin settings.</p></div>
+                </div>
+                <div class="table-card">
+                    <div class="card-header"><h2><i class="bi bi-gear-fill"></i> Admin Settings</h2></div>
+                    <div class="quick-grid">
+                        <button><i class="bi bi-person-circle"></i> Admin Profile</button>
+                        <button><i class="bi bi-shield-lock-fill"></i> Security</button>
+                        <button><i class="bi bi-bell-fill"></i> Notifications</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div id="donationModal" class="donation-modal">
+    <div class="donation-modal-content">
+        <div class="modal-header">
+            <h2>Donation Details</h2>
+            <button type="button" id="closeDonationModal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div id="donationDetails"></div>
+        <div class="verification-actions">
+            <button type="button" id="approveDonation"><i class="bi bi-check-circle-fill"></i> Approve</button>
+            <button type="button" id="rejectDonation"><i class="bi bi-x-circle-fill"></i> Reject</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
